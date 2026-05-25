@@ -134,7 +134,7 @@ async function login() {
         // LOGIN BACKEND
         const response = await axios.post(
             await axios.post(
-    `${import.meta.env.VITE_API_URL}/login`
+    `${import.meta.env.VITE_API_URL}/login`,
             {
                 email,
                 password
