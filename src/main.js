@@ -1,3 +1,4 @@
+```javascript
 import './style.css'
 import axios from 'axios'
 import * as pbi from 'powerbi-client'
@@ -131,19 +132,18 @@ async function login() {
         const password =
             document.getElementById('password').value
 
-        // LOGIN BACKEND
         const response = await axios.post(
-    `${import.meta.env.VITE_API_URL}/login`,
-    {
-        email,
-        password
-    }
-);
+            `${import.meta.env.VITE_API_URL}/login`,
+            {
+                email,
+                password
+            }
+        )
 
         localStorage.setItem(
             'finovaUser',
             JSON.stringify(response.data)
-        );
+        )
 
         loadReport(email)
 
@@ -163,79 +163,68 @@ async function loadReport(email) {
 
         document.querySelector('#app').innerHTML = `
 
-            <div
-                <div
-    style="
-        width:100%;
-        height:100vh;
-        background:#020617;
-        display:flex;
-        flex-direction:column;
-    "
->
-
-    <div
-        style="
-            height:70px;
-            background:#0f172a;
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-            padding:0 30px;
-            border-bottom:1px solid #1e293b;
-        "
-    >
-
         <div
             style="
-                color:white;
-                font-size:24px;
-                font-weight:bold;
+                width:100%;
+                height:100vh;
+                background:#020617;
+                display:flex;
+                flex-direction:column;
             "
         >
-            FINOVA
-        </div>
 
-        <button
-            id="logoutBtn"
-            style="
-                background:#ef4444;
-                color:white;
-                border:none;
-                padding:12px 20px;
-                border-radius:10px;
-                cursor:pointer;
-                font-weight:bold;
-            "
-        >
-            Logout
-        </button>
-
-    </div>
-
-    <div
-        id="reportContainer"
-        style="
-            flex:1;
-        "
-    ></div>
-
-</div>
+            <div
                 style="
-                    width:100%;
-                    height:100vh;
-                    background:#020617;
+                    height:70px;
+                    background:#0f172a;
+                    display:flex;
+                    justify-content:space-between;
+                    align-items:center;
+                    padding:0 30px;
+                    border-bottom:1px solid #1e293b;
+                "
+            >
+
+                <div
+                    style="
+                        color:white;
+                        font-size:24px;
+                        font-weight:bold;
+                    "
+                >
+                    FINOVA
+                </div>
+
+                <button
+                    id="logoutBtn"
+                    style="
+                        background:#ef4444;
+                        color:white;
+                        border:none;
+                        padding:12px 20px;
+                        border-radius:10px;
+                        cursor:pointer;
+                        font-weight:bold;
+                    "
+                >
+                    Logout
+                </button>
+
+            </div>
+
+            <div
+                id="reportContainer"
+                style="
+                    flex:1;
                 "
             ></div>
 
+        </div>
+
         `
 
-        // EMBED TOKEN
         const response = await axios.post(
-            await axios.post(
-    await axios.post(
-    await axios.post(
-    `${import.meta.env.VITE_API_URL}/get-embed-token`,
+            `${import.meta.env.VITE_API_URL}/get-embed-token`,
             {
                 email
             }
@@ -289,9 +278,10 @@ async function loadReport(email) {
             reportContainer,
             config
         )
+
         document
-    .getElementById('logoutBtn')
-    .addEventListener('click', logout)  
+            .getElementById('logoutBtn')
+            .addEventListener('click', logout)
 
     }
     catch (error) {
@@ -301,6 +291,7 @@ async function loadReport(email) {
     }
 
 }
+
 function logout() {
 
     localStorage.removeItem('finovaUser')
@@ -308,7 +299,7 @@ function logout() {
     renderLogin()
 
 }
-// SESIÓN
+
 const savedUser =
     localStorage.getItem('finovaUser')
 
@@ -324,3 +315,4 @@ else {
     renderLogin()
 
 }
+```
