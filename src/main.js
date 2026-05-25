@@ -133,7 +133,8 @@ async function login() {
 
         // LOGIN BACKEND
         const response = await axios.post(
-            'http://localhost:3000/login',
+            await axios.post(
+    'https://api.finovaintelligence.com/login',
             {
                 email,
                 password
@@ -232,7 +233,9 @@ async function loadReport(email) {
 
         // EMBED TOKEN
         const response = await axios.post(
-            'http://localhost:3000/get-embed-token',
+            await axios.post(
+    await axios.post(
+    'https://api.finovaintelligence.com/get-embed-token',
             {
                 email
             }
