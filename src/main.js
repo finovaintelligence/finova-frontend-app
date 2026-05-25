@@ -134,7 +134,7 @@ async function login() {
         // LOGIN BACKEND
         const response = await axios.post(
             await axios.post(
-    '${import.meta.env.VITE_API_URL}/login',
+    `${import.meta.env.VITE_API_URL}/login`
             {
                 email,
                 password
@@ -235,7 +235,8 @@ async function loadReport(email) {
         const response = await axios.post(
             await axios.post(
     await axios.post(
-    '${import.meta.env.VITE_API_URL}/login'
+    await axios.post(
+    `${import.meta.env.VITE_API_URL}/get-embed-token`,
             {
                 email
             }
