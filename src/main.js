@@ -1,4 +1,3 @@
-```javascript
 import './style.css'
 import axios from 'axios'
 import * as pbi from 'powerbi-client'
@@ -315,4 +314,3 @@ else {
     renderLogin()
 
 }
-```
